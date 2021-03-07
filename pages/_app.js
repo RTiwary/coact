@@ -1,4 +1,6 @@
 import { AuthProvider } from '../lib/auth';
+import '../styles/global.css';
+
 const App = ({ Component, pageProps }) => {
 	return (
 		<AuthProvider>
