@@ -16,7 +16,6 @@ export default function Search({ projects }) {
 	const [results, setResults] = useState([{ title: 'testing' }]);
 
 	useEffect(() => {
-		console.log('our projects in search: ', projects);
 		setResults(projects);
 	}, [projects]);
 
@@ -29,7 +28,7 @@ export default function Search({ projects }) {
 					<h1>Serach Results</h1>
 					<div>
 						{results.map((result) => {
-							<h2>something</h2>;
+							return <h2>{result.title}</h2>;
 						})}
 					</div>
 				</div>
