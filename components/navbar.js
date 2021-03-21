@@ -1,10 +1,17 @@
 import { useAuth } from '../lib/auth';
 import Link from 'next/link';
+import { useState } from 'react';
 
 export default function Navbar() {
 	const auth = useAuth();
 
 	const user = auth.user;
+
+	const [isUserDropdownOpen, setUserDropdown] = useState(false);
+	function toggle() {
+		setUserDropdown(!isUserDropdownOpen);
+		console.log(isUserDropdownOpen);
+	}
 
 	return (
 		<nav className="bg-gray-800">
@@ -118,14 +125,11 @@ export default function Navbar() {
 									id="user-menu"
 									aria-expanded="false"
 									aria-haspopup="true"
+									onClick={toggle}
 								>
 									<span className="sr-only">Open user menu</span>
 									{user ? (
-										<img
-											className="h-8 w-8 rounded-full object-cover"
-											src={user.photoUrl}
-											alt=""
-										/>
+										<img className="h-8 w-8 rounded-full object-cover" src={user.photoUrl} alt="" />
 									) : (
 										<img
 											className="h-8 w-8 rounded-full"
@@ -145,7 +149,9 @@ export default function Navbar() {
 								To: "transform opacity-0 scale-95"
 							*/}
 							<div
-								className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
+								className={`origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none ${
+									isUserDropdownOpen ? 'block' : 'hidden'
+								}`}
 								role="menu"
 								aria-orientation="vertical"
 								aria-labelledby="user-menu"
