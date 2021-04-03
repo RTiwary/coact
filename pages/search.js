@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react';
 
 export async function getStaticProps(context) {
 	const { projects } = await getAllProjects();
-	console.log('our projects in getstaticprops:', projects);
+	// console.log('our projects in getstaticprops:', projects);
 	return {
 		props: {
 			projects: projects || null,
@@ -22,7 +22,7 @@ export default function Search({ projects }) {
 	}, []);
 
 	return (
-		<div>
+		<>
 			<Navbar />
 			<div className="grid grid-cols-6 gap-4">
 				<div className="col-span-2 pl-8">
@@ -48,7 +48,7 @@ export default function Search({ projects }) {
 									x="0px"
 									y="0px"
 									viewBox="0 0 56.966 56.966"
-									style={{ 'enable-background': 'new 0 0 56.966 56.966' }}
+									style={{ enableBackground: 'new 0 0 56.966 56.966' }}
 									xmlSpace="preserve"
 									width="512px"
 									height="512px"
@@ -68,6 +68,6 @@ export default function Search({ projects }) {
 					</div>
 				</div>
 			</div>
-		</div>
+		</>
 	);
 }

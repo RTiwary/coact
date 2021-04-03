@@ -10,7 +10,6 @@ export default function Navbar() {
 	const [isUserDropdownOpen, setUserDropdown] = useState(false);
 	function toggle() {
 		setUserDropdown(!isUserDropdownOpen);
-		console.log(isUserDropdownOpen);
 	}
 
 	return (
@@ -25,7 +24,7 @@ export default function Navbar() {
 							aria-controls="mobile-menu"
 							aria-expanded="false"
 						>
-							<span className="sr-only">Open main menu</span>
+							<span className="sr-nly">Open main menu</span>
 							{/* Icon when menu is closed. Heroicon name: outline/menu Menu open: "hidden", Menu closed: "block" */}
 							<svg
 								className="block h-6 w-6"
